@@ -27,10 +27,11 @@ function circle(x,y,lit){
 function clear(){
 	ctx.clearRect(0,0,cw,ch)
 }
+
 function digitOf(num,digit){
 	let parsed = num.toString().split("")//.reverse()
-	
-	//if(parsed[digit] == undefined) return '0'
+	if(parsed.length == 1) parsed.pop('0')
+	if(parsed[digit] == undefined) return '0'
 	return parsed[digit]
 }
 
@@ -60,7 +61,9 @@ function draw(){
 		display2[i]= Array.from(display2[i],(v)=>parseInt(v))
 	}
 
-	console.log(display2)
+	//console.log(display2)
+
+	/*
 	
 	//display 0
 	circle(40,400,display2[0][0])
@@ -88,5 +91,6 @@ function draw(){
 	circle(340,340,display2[5][1])
 	circle(340,280,display2[5][2])
 	circle(340,220,display2[5][3])
-	
+
+	*/
 }
