@@ -5,8 +5,15 @@ var ctx= canvas.getContext('2d')
 
 let now;
 
-function circle(){
-	ctx.
+function circle(x,y,lit){
+	if(lit){
+		ctx.fillStyle = 'lightblue'
+	}else{
+		ctx.fillStyle = 'grey'
+	}
+	ctx.beginPath();
+	ctx.arc(x, y, 20, 0, 2 * Math.PI);
+	ctx.fill();
 }
 
 
