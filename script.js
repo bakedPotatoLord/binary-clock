@@ -24,6 +24,6 @@ function draw(){
 	requestAnimationFrame(draw)
 	now = new Date()
 
-	now.get
+	
 	
 }
