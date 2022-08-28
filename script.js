@@ -54,15 +54,27 @@ window.onload=draw()
 function draw(){
 	requestAnimationFrame(draw)
 	now = new Date()
-
+	//now = new Date(1661655753000)
+	
 	clear()
 	
 	//hours
-	display[0] = 	digitOf(now.getHours(),0)
-	display[1] = 	digitOf(now.getHours(),1)
+	if(now.getHours() < 10){
+		display[1] = 	digitOf(now.getHours(),0)
+		display[0] = 	digitOf(now.getHours(),1)
+	}else{
+		display[0] = 	digitOf(now.getHours(),0)
+		display[1] = 	digitOf(now.getHours(),1)
+	}
 	//minutes
-	display[2] = 	digitOf(now.getMinutes(),0)
-	display[3] = 	digitOf(now.getMinutes(),1)
+	if(now.getMinutes() < 10){
+		display[3] = 	digitOf(now.getMinutes(),0)
+		display[2] = 	digitOf(now.getMinutes(),1)
+	}else{
+		display[2] = 	digitOf(now.getMinutes(),0)
+		display[3] = 	digitOf(now.getMinutes(),1)
+	}
+	
 	//seconds
 	if(now.getSeconds() < 10){
 		display[5] = 	digitOf(now.getSeconds(),0)
@@ -76,7 +88,7 @@ function draw(){
 	console.log(display)
 
 	if(hintShown){
-		ctx.fillStyle='black'
+		ctx.fillStyle='white'
 		ctx.fillText(display[0],40,270)
 		ctx.fillText(display[1],100,270)
 		ctx.fillText(display[2],160,270)
