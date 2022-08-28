@@ -45,7 +45,6 @@ function clear(){
 function digitOf(num,digit){
 	let parsed = num.toString().split("")//.reverse()
 	if(parsed.length == 1) parsed.push('0')
-	//if(parsed[digit] == undefined) return '0'
 	return parsed[digit]
 }
 
@@ -83,9 +82,7 @@ function draw(){
 		display[4] = 	digitOf(now.getSeconds(),0)
 		display[5] = 	digitOf(now.getSeconds(),1)
 	}
-	
 
-	console.log(display)
 
 	if(hintShown){
 		ctx.fillStyle='white'
@@ -96,7 +93,6 @@ function draw(){
 		ctx.fillText(display[4],280,270)
 		ctx.fillText(display[5],340,270)
 	}
-
 	
 	//convert to binary
 	for(i in display){
@@ -104,9 +100,6 @@ function draw(){
 		display2[i]= Array.from(display2[i],(v)=>parseInt(v))
 	}
 
-	//console.log(display2)
-
-	
 	
 	//display 0
 	circle(40,220,display2[0][0])
@@ -133,7 +126,5 @@ function draw(){
 	circle(340,220,display2[5][0])
 	circle(340,160,display2[5][1])
 	circle(340,100,display2[5][2])
-	circle(340,40,display2[5][3])
-
-	
+	circle(340,40,display2[5][3])	
 }
