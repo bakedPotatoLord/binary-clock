@@ -43,9 +43,7 @@ function clear(){
 }
 
 function digitOf(num,digit){
-	let parsed = num.toString().split("")//.reverse()
-	if(parsed.length == 1) parsed.push('0')
-	return parsed[digit]
+	return parsed = num.toString().split("")[digit]
 }
 
 window.onload=draw()
@@ -53,7 +51,7 @@ window.onload=draw()
 function draw(){
 	requestAnimationFrame(draw)
 	now = new Date()
-	//now = new Date(1661655753000)
+	now = new Date(1661655753000)
 	
 	clear()
 	
