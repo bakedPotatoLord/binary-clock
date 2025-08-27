@@ -5,12 +5,10 @@ var ctx= c.getContext('2d')
 ctx.textAlign = 'center'
 ctx.font = '40px Serif';
 
-let now;
-
-let hintShown = false;
-
-cw=400
-ch=300
+let now,
+	hintShown = false,
+	cw=400,
+	ch=300;
 
 c.width = cw;
 c.height=ch;
@@ -20,19 +18,11 @@ let display2 =Array.from(Array(6),x=>x)
 
 function showHint(){
 	hintShown = !(hintShown)
-	if(hintShown){
-		btn.innerHTML = "Hide Hint"
-	}else{
-		btn.innerHTML = "Show Hint"
-	}
+	btn.innerHTML = hintShown ? "Hide Hint" : "Show Hint"
 }
 
 function circle(x,y,lit){
-	if(lit){
-		ctx.fillStyle = 'blue'
-	}else{
-		ctx.fillStyle = 'grey'
-	}
+	ctx.fillStyle = lit ? 'blue' : 'grey'
 	ctx.beginPath();
 	ctx.arc(x, y, 20, 0, 2 * Math.PI);
 	ctx.fill();
@@ -53,8 +43,6 @@ window.onload=draw()
 function draw(){
 	requestAnimationFrame(draw)
 	now = new Date()
-	//now = new Date(1661655753000)
-	
 	clear()
 	
 	//hours
@@ -83,7 +71,6 @@ function draw(){
 		display[5] = 	digitOf(now.getSeconds(),1)
 	}
 
-
 	if(hintShown){
 		ctx.fillStyle='white'
 		ctx.fillText(display[0],40,270)
@@ -99,7 +86,6 @@ function draw(){
 		display2[i]= parseInt(display[i]).toString(2).split('').reverse()
 		display2[i]= Array.from(display2[i],(v)=>parseInt(v))
 	}
-
 	
 	//display 0
 	circle(40,220,display2[0][0])
